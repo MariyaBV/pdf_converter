@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Price</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <!-- pdf.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+
+    // теперь pdfjsLib доступен
+    pdfjsLib.getDocument("example.pdf").promise.then(pdf => {
+      console.log("страниц:", pdf.numPages);
+    });
+  </script>
+
+</head>
+
+
+<body>
+  <div id="overlay" class="overlay"></div>
+  <div id="page">
+    <header class="header">
+  <nav class="nav page-width">
+    <button class="hamburger">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" fill="none">
+        <g id="Menu / Hamburger_MD">
+          <path id="Vector" d="M5 17H19M5 12H19M5 7H19" stroke="#000000" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </g>
+      </svg>
+    </button>
+    <a class="brand" href="/en" title="PDFconv">
+      <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 900 900">
+        <defs>
+          <radialGradient id="swirlGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#B78BDD" stop-opacity="0.95" />
+            <stop offset="55%" stop-color="#8B58B6" stop-opacity="0.98" />
+            <stop offset="100%" stop-color="#6E3AA3" stop-opacity="1" />
+          </radialGradient>
+          <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" />
+          </filter>
+          <style>
+            @font-face {
+              font-family: 'Inter';
+              src: local('Inter'), local('Inter-Regular');
+            }
+
+            .title {
+              font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+              font-size: 120px;
+              letter-spacing: 2px;
+              fill: #6E3AA3;
+              font-weight: 500;
+            }
+          </style>
+        </defs>
+
+        <rect width="100%" height="100%" fill="white" />
+
+        <!-- Swirl made of 8 rotated petals -->
+        <g transform="translate(450,370)">
+          <!-- one petal shape -->
+          <defs>
+            <path id="petal"
+              d="M120,0                            C120,-20 90,-38 60,-38                            C30,-38 5,-20 5,0                            C5,25 35,43 70,50                            C100,56 120,70 120,92                            C120,120 92,145 60,145                            C20,145 -20,120 -40,92                            C-60,65 -65,35 -60,5                            C-50,-55 10,-95 70,-95                            C95,-95 120,-70 120,0 Z" />
+          </defs>
+
+          <!-- draw rotated petals -->
+          <g fill="url(#swirlGrad)" filter="url(#soft)" opacity="0.95">
+            <use href="#petal" transform="rotate(0) scale(0.95)" />
+            <use href="#petal" transform="rotate(45) scale(0.95)" />
+            <use href="#petal" transform="rotate(90) scale(0.95)" />
+            <use href="#petal" transform="rotate(135) scale(0.95)" />
+            <use href="#petal" transform="rotate(180) scale(0.95)" />
+            <use href="#petal" transform="rotate(225) scale(0.95)" />
+            <use href="#petal" transform="rotate(270) scale(0.95)" />
+            <use href="#petal" transform="rotate(315) scale(0.95)" />
+          </g>
+
+          <!-- central hole -->
+          <circle r="48" fill="white" />
+        </g>
+
+        <!-- Brand text -->
+        <text x="50%" y="770" text-anchor="middle" class="title">PDFconv</text>
+      </svg>
+    </a>
+    <div class="menu">
+      <ul class="menu__additional">
+        <li>
+          <a href="/en/merge_pdf">
+            <img src="img/merge_pdf.svg" alt="merge_pdf" class="icon">
+            Merge PDF
+          </a>
+        </li>
+        <li>
+          <a href="/en/split_pdf">
+            <img src="img/split_pdf.svg" alt="Split PDF" class="icon">
+            Split PDF
+          </a>
+        </li>
+        <li>
+          <a href="/en/compress_pdf">
+            <img src="img/compress_pdf.svg" alt="Compress PDF" class="icon">
+            Compress PDF
+          </a>
+        </li>
+        <li class="nav-has-dropdown">
+          <span>Convert to PDF <span class="icon-down-arrow"></span>
+          </span>
+          <div class="nav-dropdown">
+            <ul>
+              <li>
+                <ul>
+                  <li>
+                    <div class="nav__title">Convert to PDF</div>
+                  </li>
+                  <li>
+                    <a href="/en/jpg_to_pdf">
+                      <img src="img/jpg_to_pdf.svg" alt="JPG to PDF" class="icon">
+                      JPG to PDF
+                    </a>
+                  </li>
+                  <li><a href="/en/word_to_pdf">
+                    <img src="img/word_to_pdf.svg" alt=" WORD to PDF" class="icon">
+                      WORD to PDF
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <div class="nav__title">Convert from PDF</div>
+                  </li>
+                  <li>
+                    <a href="/en/pdf_to_jpg">
+                      <img src="img/pdf_to_jpg.svg" alt="PDF в JPG" class="icon">
+                      PDF в JPG
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/en/pdf_to_word">
+                      <img src="img/pdf_to_word.svg" alt="PDF в WORD" class="icon">
+                      PDF в WORD
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+      <ul class="menu__main">
+        <li class="nav-has-dropdown">
+          <span class="menu__title">
+            All tools PDF
+            <span class="icon-down-arrow"></span>
+          </span>
+          <div class="nav-dropdown">
+            <button class="close">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z"
+                  fill="#000" />
+              </svg>
+            </button>
+            <ul>
+              <li>
+                <ul>
+                  <li>
+                    <div class="nav__title">Organize PDF</div>
+                  </li>
+                  <li>
+                    <a href="/en/merge_pdf">
+                      <img src="img/merge_pdf.svg" alt="Merge PDF" class="icon">
+                      Merge PDF
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/en/split_pdf">
+                      <img src="img/split_pdf.svg" alt="Split PDF" class="icon">
+                      Split PDF
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <div class="nav__title">Optimization PDF</div>
+                  </li>
+                  <li>
+                    <a href="/en/compress_pdf">
+                      <img src="img/compress_pdf.svg" alt="Compress PDF" class="icon">
+                      Compress PDF
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <div class="nav__title">Convert to PDF</div>
+                  </li>
+                  <li>
+                    <a href="/en/jpg_to_pdf">
+                      <img src="img/jpg_to_pdf.svg" alt="JPG to PDF" class="icon">
+                      JPG to PDF
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/en/word_to_pdf">
+                      <img src="img/word_to_pdf.svg" alt="WORD to PDF" class="icon">
+                      WORD to PDF
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <ul>
+                  <li>
+                    <div class="nav__title">Convert from PDF</div>
+                  </li>
+                  <li>
+                    <a href="/en/pdf_to_jpg">
+                      <img src="img/pdf_to_jpg.svg" alt="PDF to JPG" class="icon">
+                      PDF to JPG
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/en/pdf_to_word">
+                      <img src="img/pdf_to_word.svg" alt="PDF to WORD" class="icon">
+                      PDF to WORD
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="nav-actions">
+      <a data-rel="user-action" href="/en/login" class="">Вход</a>
+      <a data-rel="user-action" href="/en/register" class="btn btn--sm ">Регистрация</a>
+    </div>
+  </nav>
+</header>
+    <main id="main" class="main page-width">
+      <h1>Choose the plan that suits you best</h1>
+      <section class="price-cards">
+        <div class="pricing-card" style="background-color: #fff;">
+    <div class="pricing-card__header">
+        <img class="icon-big" src="img/free.svg" alt="free">
+        <p class="title2">Free</p>
+    </div>
+    <div class="pricing-card__content">
+        <div data-period="year">
+            <h3 class="title1" data-pricing-monthly="">
+                <span class="pricing__price__numbers">0</span>$ <small>/month</small>
+            </h3>
+            <p>
+                <span data-pricing-year=""><span class="pricing__price__numbers">0</span>$</span> Annual subscription
+            </p>
+        </div>
+        <a target="_self" style="width:100%; background-color: cornflowerblue;" class="btn btn--premium" href="/en/user/free/1" data-url="/en/user/free">
+            Upgrade to Free Account
+        </a>
+        <div>
+            <p class="title4">Free features include:</p>
+            <ul class="listcheck">
+                 
+                    <li class="listcheck__item">Nothing</li> 
+                
+            </ul>
+        </div>
+    </div>
+</div>
+        <div class="pricing-card" style="background-color: #fff3d6;">
+    <div class="pricing-card__header">
+        <img class="icon-big" src="img/premium.svg" alt="premium">
+        <p class="title2">Premium</p>
+    </div>
+    <div class="pricing-card__content">
+        <div data-period="year">
+            <h3 class="title1" data-pricing-monthly="">
+                <span class="pricing__price__numbers">5</span>$ <small>/month</small>
+            </h3>
+            <p>
+                <span data-pricing-year=""><span class="pricing__price__numbers">60</span>$</span> Annual subscription
+            </p>
+        </div>
+        <a target="_self" style="width:100%; background-color: red;" class="btn btn--premium" href="/en/user/premium/1" data-url="/en/user/premium">
+            Upgrade to Premium Account
+        </a>
+        <div>
+            <p class="title4">Premium features include:</p>
+            <ul class="listcheck">
+                 
+                    <li class="listcheck__item">Unlimited document processing</li> 
+                 
+                    <li class="listcheck__item">Digital signatures</li> 
+                 
+                    <li class="listcheck__item">Workflows</li> 
+                 
+                    <li class="listcheck__item">No ads</li> 
+                 
+                    <li class="listcheck__item">Priority Customer Support</li> 
+                
+            </ul>
+        </div>
+    </div>
+</div>
+        <div class="pricing-card" style="background-color: aliceblue;">
+    <div class="pricing-card__header">
+        <img class="icon-big" src="img/business.svg" alt="business">
+        <p class="title2">Business</p>
+    </div>
+    <div class="pricing-card__content">
+        <div data-period="year">
+            <h3 class="title1" data-pricing-monthly="">
+                <span class="pricing__price__numbers">30</span>$ <small>/month</small>
+            </h3>
+            <p>
+                <span data-pricing-year=""><span class="pricing__price__numbers">1000</span>$</span> Annual subscription
+            </p>
+        </div>
+        <a target="_self" style="width:100%; background-color: #6e3aa3;" class="btn btn--premium" href="/en/user/business/1" data-url="/en/user/business">
+            Upgrade to Business Account
+        </a>
+        <div>
+            <p class="title4">Business features include:</p>
+            <ul class="listcheck">
+                 
+                    <li class="listcheck__item">Unlimited document processing</li> 
+                 
+                    <li class="listcheck__item">Digital signatures</li> 
+                 
+                    <li class="listcheck__item">Workflows</li> 
+                 
+                    <li class="listcheck__item">No ads</li> 
+                 
+                    <li class="listcheck__item">Priority Customer Support</li> 
+                 
+                    <li class="listcheck__item">Unlimited document processing</li> 
+                 
+                    <li class="listcheck__item">Digital signatures</li> 
+                 
+                    <li class="listcheck__item">Workflows</li> 
+                 
+                    <li class="listcheck__item">No ads</li> 
+                 
+                    <li class="listcheck__item">Priority Customer Support</li> 
+                 
+                    <li class="listcheck__item">Unlimited document processing</li> 
+                 
+                    <li class="listcheck__item">Digital signatures</li> 
+                 
+                    <li class="listcheck__item">Workflows</li> 
+                 
+                    <li class="listcheck__item">No ads</li> 
+                 
+                    <li class="listcheck__item">Priority Customer Support</li> 
+                
+            </ul>
+        </div>
+    </div>
+</div>
+      </section>
+    </main>
+    <footer class="footer" id="main-footer">
+  <div class="footer-bg page-width">
+    <div class="footer-wrap">
+      <div class="footer__messengers-block">
+        <div class="block-logo">
+          <a class="brand" href="/en" title="PDFconv">
+            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 900 900">
+              <defs>
+                <radialGradient id="swirlGrad" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#B78BDD" stop-opacity="0.95" />
+                  <stop offset="55%" stop-color="#8B58B6" stop-opacity="0.98" />
+                  <stop offset="100%" stop-color="#6E3AA3" stop-opacity="1" />
+                </radialGradient>
+                <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" />
+                </filter>
+                <style>
+                  @font-face {
+                    font-family: 'Inter';
+                    src: local('Inter'), local('Inter-Regular');
+                  }
+
+                  .title {
+                    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
+                    font-size: 120px;
+                    letter-spacing: 2px;
+                    fill: #6E3AA3;
+                    font-weight: 500;
+                  }
+                </style>
+              </defs>
+
+              <rect width="100%" height="100%" fill="white" />
+
+              <!-- Swirl made of 8 rotated petals -->
+              <g transform="translate(450,370)">
+                <!-- one petal shape -->
+                <defs>
+                  <path id="petal"
+                    d="M120,0                            C120,-20 90,-38 60,-38                            C30,-38 5,-20 5,0                            C5,25 35,43 70,50                            C100,56 120,70 120,92                            C120,120 92,145 60,145                            C20,145 -20,120 -40,92                            C-60,65 -65,35 -60,5                            C-50,-55 10,-95 70,-95                            C95,-95 120,-70 120,0 Z" />
+                </defs>
+
+                <!-- draw rotated petals -->
+                <g fill="url(#swirlGrad)" filter="url(#soft)" opacity="0.95">
+                  <use href="#petal" transform="rotate(0) scale(0.95)" />
+                  <use href="#petal" transform="rotate(45) scale(0.95)" />
+                  <use href="#petal" transform="rotate(90) scale(0.95)" />
+                  <use href="#petal" transform="rotate(135) scale(0.95)" />
+                  <use href="#petal" transform="rotate(180) scale(0.95)" />
+                  <use href="#petal" transform="rotate(225) scale(0.95)" />
+                  <use href="#petal" transform="rotate(270) scale(0.95)" />
+                  <use href="#petal" transform="rotate(315) scale(0.95)" />
+                </g>
+
+                <!-- central hole -->
+                <circle r="48" fill="white" />
+              </g>
+
+              <!-- Brand text -->
+              <text x="50%" y="770" text-anchor="middle" class="title">PDFconv</text>
+            </svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-menu-info">
+        <div class="contact-email">
+          <a href="mailto:info@gmail.com">
+            <span class="icon-email"></span>
+            <span>info@gmail.com</span>
+          </a>
+        </div>
+        <div class="contact-phone">
+          <a href="tel:">
+            <span class="icon-phone"></span>
+            <span>phone number</span>
+          </a>
+        </div>
+        <div class="contact-address">
+          <a href="https://www.google.com/maps" alt="Adress">
+            <span class="icon-address"></span>
+            <span>Adress</span>
+          </a>
+        </div>
+        <div class="contact-messengers mobile">
+          <a class="google" href="">
+            <img src="img/g.svg" alt="google" class="icon">
+          </a>
+          <a class="facebook" href="">
+            <img src="img/facebook.svg" alt="facebook" class="icon">
+          </a>
+        </div>
+      </div>
+      <div class="footer-menu-list">
+        <div class="menu__main">
+          <ul class="menu__main_list">
+            <li>
+              <ul>
+                <li>
+                  <div class="nav__title">Organize PDF</div>
+                </li>
+                <li>
+                  <a href="/en/merge_pdf">
+                    <img src="img/merge_pdf.svg" alt="merge pdf" class="icon">
+                    Merge PDF
+                  </a>
+                </li>
+                <li>
+                  <a href="/en/split_pdf">
+                    <img src="img/split_pdf.svg" alt="split pdf" class="icon">
+                    Split PDF
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <li>
+                  <div class="nav__title">Optimization PDF</div>
+                </li>
+                <li>
+                  <a href="/en/compress_pdf">
+                    <img src="img/compress_pdf.svg" alt="compress pdf" class="icon">
+                    Сompress PDF
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <li>
+                  <div class="nav__title">Convert to PDF</div>
+                </li>
+                <li>
+                  <a href="/en/jpg_to_pdf">
+                    <img src="img/jpg_to_pdf.svg" alt="JPG to PDF" class="icon">
+                    JPG to PDF
+                  </a>
+                </li>
+                <li>
+                  <a href="/en/word_to_pdf">
+                    <img src="img/word_to_pdf.svg" alt="word to pdf" class="icon">
+                    word to pdf
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <li>
+                  <div class="nav__title">Convert from PDF</div>
+                </li>
+                <li>
+                  <a href="/en/pdf_to_jpg">
+                    <img src="img/pdf_to_jpg.svg" alt="PDF to JPG" class="icon">
+                    PDF to JPG
+                  </a>
+                </li>
+                <li>
+                  <a href="/en/pdf_to_word">
+                    <img src="img/pdf_to_word.svg" alt="PDF to WORD" class="icon">
+                    PDF to WORD
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-policy">
+        <a href="http://">User Agreement</a>
+        <a href="http://">Personal data processing policy</a>
+        <a href="http://">Privacy Policy</a>
+        <a href="http://">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <p>© PDFconv 2025 ® - Your PDF Converter</p>
+  </div>
+</footer>
+  </div>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>

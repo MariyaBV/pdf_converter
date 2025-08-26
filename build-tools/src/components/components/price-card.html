@@ -1,0 +1,27 @@
+<div class="pricing-card" style="background-color: @@background_color;">
+    <div class="pricing-card__header">
+        <img class="icon-big" src="img/@@icon.svg" alt="@@icon">
+        <p class="title2">@@title</p>
+    </div>
+    <div class="pricing-card__content">
+        <div data-period="year">
+            <h3 class="title1" data-pricing-monthly="">
+                <span class="pricing__price__numbers">@@price-month</span>@@currency <small>/month</small>
+            </h3>
+            <p>
+                <span data-pricing-year=""><span class="pricing__price__numbers">@@price-year</span>@@currency</span> Annual subscription
+            </p>
+        </div>
+        <a target="_self" style="width:100%; background-color: @@background_button_color;" class="btn btn--premium" href="/en/user/@@icon/1" data-url="/en/user/@@icon">
+            Upgrade to @@title Account
+        </a>
+        <div>
+            <p class="title4">@@title features include:</p>
+            <ul class="listcheck">
+                @@for (var i = 0; i < functions.length; i++) { 
+                    <li class="listcheck__item">`+functions[i]+`</li> 
+                }
+            </ul>
+        </div>
+    </div>
+</div>
