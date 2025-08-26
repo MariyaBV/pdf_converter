@@ -15,25 +15,48 @@
         justify-content: space-between;
         gap: 20px;
 
+        @media screen and (max-width: 740px) {
+            gap: 10px;
+        }
+
+        .hamburger {
+            border: none;
+            background: none;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            @media screen and (min-width: 655px) {
+                display: none;
+            }
+        }
+
         ul {
-            margin-left: 0;
+            margin: 0;
             padding-left: 0;
             list-style: none;
             font-size: 13px;
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 10px;
             align-items: center;
+
+            @media screen and (max-width: 655px) {
+                flex-direction: column;
+                align-items: flex-start;
+                flex-wrap: nowrap;
+            }
 
             li {
                 svg {
                     height: 30px;
+                    width: 30px;
                 }
             }
         }
 
         .menu {
-            margin: 0 24px;
             align-items: center;
             display: flex;
             order: 2;
@@ -49,25 +72,38 @@
                 gap: 20px;
             }
 
-            .menu--md {
-                display: none;
-
-                @media screen and (min-width: calc(861px)) and (max-width: 1170px) {
-                    display: flex;
-                    align-items: center;
-                }
-            }
-
             a {
                 display: inline-flex;
                 align-items: center;
                 color: #161616;
                 text-decoration: none;
                 font-weight: 500;
+                gap: 5px;
             }
 
             li {
                 text-transform: none;
+            }
+
+            .menu__additional {
+                @media screen and (max-width: 1230px) {
+                    display: none;
+                }
+            }
+
+            &__title {
+                @media screen and (max-width: 1230px) {
+                    text-transform: uppercase;
+                    font-size: 22px;
+                }
+
+                @media screen and (max-width: 740px) {
+                    font-size: 20px;
+                }
+
+                @media screen and (max-width: 655px) {
+                    display: none;
+                }
             }
         }
 
@@ -79,7 +115,11 @@
         display: flex;
         gap: 20px;
         order: 3;
-        margin: 0 0 0 auto;
+
+        >a:not(.btn) {
+            color: #161616;
+            text-decoration: none;
+        }
     }
 
     .nav-has-dropdown {
@@ -109,8 +149,60 @@
             cursor: auto;
             background: var(--white);
             padding: 10px;
-            min-width: 500px;
+            min-width: 530px;
             border: 1px solid #d6d6df;
+
+            @media screen and (max-width: 655px) {
+                display: flex;
+                transform: rotateX(90deg);
+                position: fixed;
+                top: 0;
+                left: 0;
+                bottom: 0;
+                z-index: 12;
+                width: 100%;
+                max-width: 550px;
+                background-color: var(--white);
+                transition: var(--transition);
+                transform-origin: center top;
+                align-items: flex-start;
+                gap: 0;
+                flex-direction: column;
+                max-width: 100%;
+                padding: 30px;
+                right: 0;
+                min-width: auto;
+            }
+
+            &.active {
+                transform: translateX(0);
+            }
+
+            ul {
+                gap: 15px;
+            }
+
+            .close {
+                display: none;
+                background: none;
+                border: none;
+                position: absolute;
+                top: 20px;
+                right: 20px;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                @media screen and (max-width: 655px) {
+                    display: block;
+                }
+
+                svg {
+                    height: 50px;
+                    width: 50px;
+                }
+            }
         }
     }
 
@@ -121,12 +213,6 @@
         font-weight: 500;
         line-height: 22px;
         text-align: left;
-    }
-
-    .nav-actions {
-        >a:not(.btn) {
-            color: #161616;
-            text-decoration: none;
-        }
+        min-width: 180px;
     }
 }

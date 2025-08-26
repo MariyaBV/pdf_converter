@@ -1,5 +1,12 @@
 <header class="header">
   <nav class="nav">
+    <button class="hamburger">
+      <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" fill="none">
+        <g id="Menu / Hamburger_MD">
+        <path id="Vector" d="M5 17H19M5 12H19M5 7H19" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </g>
+      </svg>
+    </button>
     <a class="brand" href="/en" title="PDFconv">
       <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 900 900">
         <defs>
@@ -58,15 +65,7 @@
       </svg>
     </a>
     <div class="menu">
-      <span class="menu--sm"><i class="ico ico--hamburger"></i></span>
-      <span class="menu--md">
-        Все инструменты PDF
-        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none">
-          <path d="M7 10L12 15L17 10" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
-            stroke-linejoin="round" />
-        </svg>
-      </span>
-      <ul>
+      <ul class="menu__additional">
         <li><a href="/en/merge_pdf"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 50 50">
               <g fill="#EE6C4D" fill-rule="evenodd">
                 <path
@@ -213,15 +212,20 @@
         </li>
       </ul>
       <ul class="menu__main">
-        <li class="nav-has-dropdown nav-has-dropdown--full">
-          <span class="hide--sm">
+        <li class="nav-has-dropdown">
+          <span class="menu__title">
             Все инструменты PDF
             <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 24 24" fill="none">
               <path d="M7 10L12 15L17 10" stroke="#000000" stroke-width="1.5" stroke-linecap="round"
                 stroke-linejoin="round" />
             </svg>
           </span>
-          <div class="nav-dropdown nav-dropdown--full">
+          <div class="nav-dropdown">
+            <button class="close">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 24 24" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L12 10.5858L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L13.4142 12L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L12 13.4142L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L10.5858 12L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#000"/>
+              </svg>
+            </button>
             <ul>
               <li>
                 <ul>
@@ -386,8 +390,8 @@
       </ul>
     </div>
     <div class="nav-actions">
-      <a data-rel="user-action" href="/en/login" class="link--secondary hide--sm">Вход</a>
-      <a data-rel="user-action" href="/en/register" class="btn btn--sm hide--sm">Регистрация</a>
+      <a data-rel="user-action" href="/en/login" class="">Вход</a>
+      <a data-rel="user-action" href="/en/register" class="btn btn--sm ">Регистрация</a>
     </div>
   </nav>
 </header>

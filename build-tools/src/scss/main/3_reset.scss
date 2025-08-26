@@ -48,35 +48,6 @@ body {
   justify-content: space-between;
 }
 
-.site {
-  position: relative;
-}
-
-.page-width {
-  max-width: 1560px;
-  margin: 0 auto;
-  width: 100%;
-  padding: 0 30px;
-  z-index: 1;
-  display: block;
-  position: relative;
-
-  @media screen and (max-width: 380px) {
-    padding: 0 15px;
-  }
-}
-
-.mobile-page-width {
-  @media screen and (max-width: 575px) {
-    padding: 0;
-  }
-}
-
-.page-width-without-padding {
-  max-width: 1500px;
-  margin: 0 auto;
-}
-
 img,
 picture,
 video,
@@ -129,6 +100,26 @@ input[type=submit] {
   font-size: 20px;
 }
 
+.btn {
+  width: fit-content;
+  font-weight: 600;
+  border: none;
+  transition: all .1s linear;
+  display: inline-flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  text-shadow: none;
+  text-decoration: none;
+  letter-spacing: 0;
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 8px 20px;
+  line-height: 26px;
+  color: var(--white);
+  background-color: var(--red);
+}
+
 .btn--sm {
   width: fit-content;
   font-weight: 600;
@@ -149,22 +140,6 @@ input[type=submit] {
   padding: 8px 12px;
 }
 
-.btn {
-  width: fit-content;
-  font-weight: 600;
-  border: none;
-  transition: all .1s linear;
-  display: inline-flex;
-  justify-content: center;
-  text-align: center;
-  align-items: center;
-  text-shadow: none;
-  text-decoration: none;
-  letter-spacing: 0;
-  font-size: 16px;
-  border-radius: 8px;
-  padding: 8px 20px;
-  line-height: 26px;
-  color: var(--white);
-  background-color: var(--red);
+.main {
+  margin-top: 91px;
 }
