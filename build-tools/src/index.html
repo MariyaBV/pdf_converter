@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-@@include('components/const/_head.html', { "lang":"ru", "title":"Главная",
+@@include('components/const/_head.html', { "lang":"en", "title":"Main page",
 "other_css":false } )
 
 <body>
   <div id="overlay" class="overlay"></div>
   <div id="page">
     @@include('components/const/_header.html')
-    <main id="main" class="main">
+    <main id="main" class="main page-width">
+      <h1>Online tools for PDF optimization</h1>
+      <h2>Most Popular PDF Optimization Tools</h2>
+      <section class="card">
+        @@include('components/components/card.html',
+        {"subtitle": "Split PDF", 
+        "text": "Select a page range, a single page, or convert each page of your document into an independent PDF file.", 
+        "name_svg": "split_pdf"})
+         @@include('components/components/card.html',
+        {"subtitle": "Merge PDF", 
+        "text": "Select a page range, a single page, or convert each page of your document .", 
+        "name_svg": "merge_pdf"})
+         @@include('components/components/card.html',
+        {"subtitle": "Compress PDF", 
+        "text": "Select a page range, a single page, or convert each page of your document into an independent PDF file.", 
+        "name_svg": "compress_pdf"})
+         @@include('components/components/card.html',
+        {"subtitle": "word to PDF", 
+        "text": "Select a page range, a single page, or convert each page of your document into an independent PDF file.Select a page range, a single page, or convert each page of your document into an independent PDF file", 
+        "name_svg": "word_to_pdf"})
+         @@include('components/components/card.html',
+        {"subtitle": "jpg to PDF", 
+        "text": "Select a page range, a single page, or convert each page of your document into an independent PDF file.", 
+        "name_svg": "jpg_to_pdf"})
 
+      </section>
     </main>
     @@include('components/const/_footer.html')
   </div>

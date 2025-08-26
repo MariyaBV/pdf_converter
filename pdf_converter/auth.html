@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Main page</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <!-- pdf.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+  <script>
+    pdfjsLib.GlobalWorkerOptions.workerSrc =
+      "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js";
+
+    // теперь pdfjsLib доступен
+    pdfjsLib.getDocument("example.pdf").promise.then(pdf => {
+      console.log("страниц:", pdf.numPages);
+    });
+  </script>
+
+</head>
+
+
+<body>
+    <div id="overlay" class="overlay"></div>
+    <div id="page">
+        <div class="auth">
+            <div class="auth__form">
+                <div class="auth__box">
+                    <a class="brand" href="/en" title="pdfconv">
+                        <img src="img/pdfconv_logo.svg" alt="pdfconv logo">
+                    </a> 
+                    <img class="successfully" width="130px" height="130" src="img/animated-check.gif">
+                    <h2 class="title2">You have been successfully registered.</h2>
+                    <p>Welcome to PDFconv!</p>
+                    <a class="btn" href="/en">Start using PDFconv</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

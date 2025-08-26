@@ -1,7 +1,7 @@
 .footer {
     background-color: var(--white);
     padding: 20px;
-    border-top: 1px solid #d6d6df;
+    border-top: 1px solid var(--border-color);
 
     &-wrap {
         display: flex;
@@ -22,7 +22,7 @@
         a {
             align-items: center;
             display: inline-flex;
-            color: #161616;
+            color: var(--main-black);
             text-decoration: none;
             font-weight: 500;
         }
@@ -32,7 +32,7 @@
         a {
             align-items: center;
             display: inline-flex;
-            color: #161616;
+            color: var(--main-black);
             text-decoration: none;
             font-weight: 500;
             gap: 5px;
@@ -57,7 +57,7 @@
                 a {
                     align-items: center;
                     display: inline-flex;
-                    color: #161616;
+                    color: var(--main-black);
                     text-decoration: none;
                     font-weight: 500;
                     gap: 5px;
@@ -74,8 +74,8 @@
     .nav__title {
         text-transform: uppercase;
         margin-bottom: 12px;
-        color: #707078;
-        font-size: 14px;
+        color: var(--violet);
+        font-size: 15px;
         font-weight: 500;
         line-height: 22px;
         text-align: left;

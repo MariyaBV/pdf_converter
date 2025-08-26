@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('components/const/_head.html', { "lang":"en", "title":"page inner",
+"other_css":false } )
+
+<body>
+  <div id="overlay" class="overlay"></div>
+  <div id="page">
+    @@include('components/const/_header.html')
+    <main id="main" class="main page-width">
+      <h1>Merge PDF</h1>
+      <h2>Combine PDF files and organize them easily and quickly in any order you like.</h2>
+      <div class="uploader" id="uploader">
+        <button class="btn uploader__btn" id="selectBtn">Select PDF files</button>
+        <input type="file" id="fileInput" accept="application/pdf" multiple style="display:none">
+        <div class="uploader__droptxt">or drag and drop PDF files here</div>
+        <ul id="fileList"></ul>
+      </div>
+      <!-- Контейнер для отображения PDF -->
+      <div id="pdf-viewer"></div>
+    </main>
+    @@include('components/const/_footer-little.html')
+  </div>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>

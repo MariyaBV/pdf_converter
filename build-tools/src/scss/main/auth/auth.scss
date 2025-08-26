@@ -1,0 +1,46 @@
+.auth {
+    display: flex;
+    width: 100%;
+
+    &__form {
+        min-height: 100vh;
+        flex: 1 0 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        text-align: center;
+        overflow: auto;
+
+        @media screen and (max-width: 600px) {
+            min-height: auto;
+        }
+    }
+
+    &__box {
+        max-width: 700px;
+        padding: 32px 0;
+    }
+
+    .brand {
+        max-width: 150px;
+        margin: 10px auto;
+    }
+}
+
+.auth__form .auth__box {
+    min-width: 472px;
+    max-width: 472px;
+    text-align: center;
+
+    @media screen and (max-width: 600px) {
+        min-width: 100%;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+}
+
+.successfully {
+    max-width: 150px;
+    margin: 10px auto;
+}

@@ -22,7 +22,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #292b2c;
+  color: var(--light-black);
   background-color: var(--main-color);
 }
 
@@ -117,7 +117,11 @@ input[type=submit] {
   padding: 8px 20px;
   line-height: 26px;
   color: var(--white);
-  background-color: var(--red);
+  background-color: var(--violet);
+
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .btn--sm {
@@ -140,6 +144,71 @@ input[type=submit] {
   padding: 8px 12px;
 }
 
+h1 {
+  font-weight: 600;
+  font-size: 42px;
+  line-height: 52px;
+  color: var(--black);
+  text-align: center;
+  margin: 20px auto;
+}
+
+h2 {
+  line-height: 32px;
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--main-black);
+  text-align: center;
+  margin: 20px auto;
+}
+
+[class^=icon-],
+[class*=" icon-"] {
+  font-size: 24px;
+}
+
+.icon-down-arrow:before {
+  font-size: 32px;
+}
+
+.icon {
+  max-width: 30px;
+  max-height: 30px;
+}
+
+.page-width {
+  max-width: 1560px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 30px;
+  z-index: 1;
+  display: block;
+  position: relative;
+
+  @media screen and (max-width: 380px) {
+    padding: 0 15px;
+  }
+}
+
 .main {
-  margin-top: 91px;
+  margin-top: 100px;
+}
+
+.title2 {
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 30px;
+  color: var(--black);
+}
+
+p {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.brand {
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

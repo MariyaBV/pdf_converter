@@ -1,0 +1,48 @@
+.uploader {
+    padding: 10px;
+    display: block;
+    max-width: 500px;
+    margin: 0 auto;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+
+    &__droptxt {
+        text-align: center;
+        color: var(--dark-grey);
+    }
+
+    &__btn {
+        margin: 20px auto;
+        display: block;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        padding: 24px 48px;
+        font-weight: 500;
+        font-size: 24px;
+        background: var(--violet);
+        line-height: 28px;
+        vertical-align: middle;
+        color: var(--white);
+        text-decoration: none;
+        margin-bottom: 12px;
+        transition: background-color .1s linear;
+        border: 0;
+        border-radius: 12px;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .14);
+        order: 1;
+        max-width: 60vw;
+
+        &:hover {
+            cursor: pointer;
+            opacity: .8;
+        }
+    }
+}
+
+canvas {
+    display: block;
+    margin: 15px auto;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
