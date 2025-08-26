@@ -1091,6 +1091,16 @@ p {
 .header .nav-has-dropdown .nav-dropdown ul {
   gap: 15px;
 }
+@media screen and (max-width: 655px) {
+  .header .nav-has-dropdown .nav-dropdown ul {
+    gap: 6px;
+  }
+}
+@media screen and (max-height: 555px) {
+  .header .nav-has-dropdown .nav-dropdown ul {
+    gap: 6px;
+  }
+}
 .header .nav-has-dropdown .nav-dropdown .close {
   display: none;
   background: none;

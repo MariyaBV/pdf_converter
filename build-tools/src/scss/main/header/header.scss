@@ -180,6 +180,14 @@
 
             ul {
                 gap: 15px;
+
+                @media screen and (max-width: 655px) {
+                    gap: 6px;
+                }
+
+                @media screen and (max-height: 555px) {
+                    gap: 6px;
+                }
             }
 
             .close {
