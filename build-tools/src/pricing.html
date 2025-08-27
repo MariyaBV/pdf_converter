@@ -12,60 +12,36 @@
       <section class="price-cards">
         @@include('components/components/price-card.html',
         {
-          "title": "Free",
+          "title": "Weekly",
           "background_color": "#fff",
           "background_button_color": "cornflowerblue",
           "icon": "free",
-          "price-year": "0",
-          "price-month": "0",
+          "price": "100",
           "currency": "$",
-          "functions": [
-            "Nothing",
-          ]
+          "discount": "",
+          "discount-text": ""
         })
         @@include('components/components/price-card.html',
         {
-          "title": "Premium",
+          "title": "Monthly",
           "background_color": "#fff3d6",
           "background_button_color": "red",
           "icon": "premium",
-          "price-year": "60",
-          "price-month": "5",
+          "price": "500",
           "currency": "$",
-          "functions": [
-            "Unlimited document processing",
-            "Digital signatures",
-            "Workflows",
-            "No ads",
-            "Priority Customer Support"
-          ]
+          "discount": "10%",
+          "discount-text": "10% cheaper than Weekly subscription.",
         })
         @@include('components/components/price-card.html',
         {
-          "title": "Business",
+          "title": "Yearly",
           "background_color": "aliceblue",
           "background_button_color": "#6e3aa3",
           "icon": "business",
-          "price-year": "1000",
-          "price-month": "30",
+          "price": "1000",
           "currency": "$",
-          "functions": [
-            "Unlimited document processing",
-            "Digital signatures",
-            "Workflows",
-            "No ads",
-            "Priority Customer Support",
-            "Unlimited document processing",
-            "Digital signatures",
-            "Workflows",
-            "No ads",
-            "Priority Customer Support",
-            "Unlimited document processing",
-            "Digital signatures",
-            "Workflows",
-            "No ads",
-            "Priority Customer Support"
-          ]
+          "discount": "20%",
+          "discount-text": "20% cheaper than Monthly subscription.",
         })
       </section>
     </main>

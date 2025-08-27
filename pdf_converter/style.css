@@ -352,7 +352,7 @@ h2 {
 }
 
 .title2 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 28px;
   line-height: 30px;
   color: var(--black);
@@ -377,12 +377,13 @@ p {
 }
 
 .title4 {
-  line-height: 28px;
-  font-size: 20px;
+  line-height: 22px;
+  font-size: 17px;
   font-weight: 400;
   font-weight: 600;
   color: var(--black);
   font-family: "OpenSans", sans-serif;
+  text-align: center;
 }
 :root {
   --black: #000000;
@@ -921,7 +922,7 @@ p {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(33.3333333333% - 16px);
           flex: 0 0 calc(33.3333333333% - 16px);
-  padding: 20px;
+  padding: 30px;
   border: 1px solid var(--border-color);
   border-radius: 20px;
 }
@@ -963,6 +964,39 @@ p {
   position: relative;
   padding-left: 2px;
   font-size: 16px;
+}
+.price-cards .pricing-card__number {
+  font-size: 24px;
+}
+.price-cards .pricing-card .box-discount {
+  width: 50px;
+  height: 40px;
+  background: var(--red);
+  color: var(--white);
+  font-size: 16px;
+  line-height: 40px;
+  text-align: center;
+  font-weight: 700;
+  font-family: "OpenSans", Arial, Helvetica, sans-serif;
+  position: relative;
+  margin-left: auto;
+}
+.price-cards .pricing-card .box-discount:before, .price-cards .pricing-card .box-discount:after {
+  border-color: var(--red) transparent transparent;
+  top: 100%;
+  content: "";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-style: solid;
+  left: 0;
+  border-width: 10px 25px 0 0;
+}
+.price-cards .pricing-card .box-discount:after {
+  right: 0;
+  left: auto;
+  border-width: 10px 0 0 25px;
 }
 .uploader {
   padding: 10px;
