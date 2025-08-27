@@ -385,6 +385,63 @@ p {
   font-family: "OpenSans", sans-serif;
   text-align: center;
 }
+
+.go_back {
+  font-weight: 500;
+  text-decoration: underline;
+  color: #e5322d;
+  cursor: pointer;
+}
+
+input[type=email] {
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 22px;
+  color: var(--dark-grey);
+  -webkit-transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  padding: 12px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  width: 100%;
+}
+input[type=email]:focus, input[type=email]:hover, input[type=email]:active, input[type=email]:focus-visible {
+  border: 1px solid var(--violet);
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 15px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 20px 0;
+}
+
+.error_text {
+  color: var(--red);
+  font-size: 15px;
+  text-align: center;
+  font-weight: 400;
+  line-height: 14px;
+}
+
+.error-input {
+  border: 1px solid var(--red) !important;
+}
 :root {
   --black: #000000;
   --white: #FFFFFF;

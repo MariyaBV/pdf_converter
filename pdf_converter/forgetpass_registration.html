@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <title>Success page</title>
+  <title>Forgetpass / Registration page</title>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!-- pdf.js -->
@@ -30,11 +30,21 @@
                 <div class="auth__box">
                     <a class="brand" href="/en" title="pdfconv">
                         <img style="border-radius: 20px;" src="img/pdfconv_logo.svg" alt="pdfconv logo">
-                    </a> 
-                    <img class="successfully" width="130px" height="130" src="img/animated-check.gif">
-                    <h2 class="title2">You have been successfully registered.</h2>
-                    <p>Welcome to PDFconv!</p>
-                    <a class="btn" href="/en">Start using PDFconv</a>
+                    </a>
+                    <h2 class="title2">Create an account / Reset password</h2>
+                    <h4>Enter your email address and check your mailbox. Also check your spam folder.</h4>
+                    <form id="message-contact" action="/form_check" method="post">
+                        <input class="error-input" type="email" name="email" placeholder="Email" required>
+                        <div class="g-recaptcha" data-sitekey="6LcGSpcrAAAAAO4YvRdqq2UoGWw-tqIFq6X8PYDv"></div>
+                        <p class="error_text">Error!!!!</p>
+                        <button type="submit" data-loading-text="Checking..." class="btn">Send</button>
+                    </form>
+                    <div class="create-account">
+                        <p>
+                            Are you already registered? <a href="/en/login" class="go_back">
+                                Login</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
