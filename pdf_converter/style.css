@@ -393,7 +393,8 @@ p {
   cursor: pointer;
 }
 
-input[type=email] {
+input[type=email],
+input[type=password] {
   background-color: var(--white);
   border: 1px solid var(--border-color);
   border-radius: 4px;
@@ -409,7 +410,11 @@ input[type=email] {
           box-shadow: none;
   width: 100%;
 }
-input[type=email]:focus, input[type=email]:hover, input[type=email]:active, input[type=email]:focus-visible {
+input[type=email]:focus, input[type=email]:hover, input[type=email]:active, input[type=email]:focus-visible,
+input[type=password]:focus,
+input[type=password]:hover,
+input[type=password]:active,
+input[type=password]:focus-visible {
   border: 1px solid var(--violet);
 }
 

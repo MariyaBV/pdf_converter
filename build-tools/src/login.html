@@ -12,18 +12,17 @@
                     <a class="brand" href="/en" title="pdfconv">
                         <img style="border-radius: 20px;" src="img/pdfconv_logo.svg" alt="pdfconv logo">
                     </a>
-                    <h2 class="title2">Create an account / Reset password</h2>
-                    <h4>Enter your email address and check your mailbox. Also check your spam folder.</h4>
-                    <form id="form-registration" action="/form_check" method="post">
-                        <input class="error-input" type="email" name="email" placeholder="Email" required>
-                        <div class="g-recaptcha" data-sitekey="6LcGSpcrAAAAAO4YvRdqq2UoGWw-tqIFq6X8PYDv"></div>
+                    <h2 class="title2">Login to your account</h2>
+                    <form id="form-login" action="/form_login" method="post">
+                        <input type="email" name="email" placeholder="Email" required>
+                        <input type="password" name="password" placeholder="Password" required>
                         <p class="error_text">Error!!!!</p>
-                        <button type="submit" data-loading-text="Checking..." class="btn">Send</button>
+                        <button type="submit" data-loading-text="Checking..." class="btn">Login</button>
                     </form>
+                    <a class="go_back" href="/en/forgetpassword">Forgot your password?</a>
                     <div class="create-account">
                         <p>
-                            Are you already registered? <a href="/en/login" class="go_back">
-                                Login</a>
+                            Don't have an account? <a href="/en/register" class="go_back">Register</a>
                         </p>
                     </div>
                 </div>

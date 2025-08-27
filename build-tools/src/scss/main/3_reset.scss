@@ -235,7 +235,8 @@ p {
   cursor: pointer;
 }
 
-input[type=email] {
+input[type=email],
+input[type=password] {
   background-color: var(--white);
   border: 1px solid var(--border-color);
   border-radius: 4px;
