@@ -1,0 +1,48 @@
+<div class="card-content">
+    <div class="card-content__header">
+        <h2 class="card-content__title">Profile</h2>
+    </div>
+    <div class="card-content__body">
+        <div class="user-info">
+            <h3>Email:</h3>
+            <p title="jcfbherifvbsgrbsguhgeiuvh@gmail.com" class="user-info__email">jcfbherifvbsgrbsguhgeiuvh@gmail.com</p>
+        </div>
+    </div>
+    <div>
+        <div class="card-content__header">
+            <h2 class="card-content__title">Password</h2>
+        </div>
+        <div id="password-edit" class="card-content__form">
+            <form id="password-form" action="/ru/user/security" method="post">
+                <!-- CSRF-токен -->
+                <input type="hidden" name="_csrf-ilovepdf"
+                    value="J0v7klfhx4TU2Em6prh0Vp2f4-U3AI8EYvKvowtzhEpVDpXNGYOvt72SAMvV0U0Hqf21oHxKxDY1x8D1bh6yJg==">
+
+                <div class="card-content__body">
+                    <div class="form-group">
+                        <label for="new_password">New password</label>
+                        <input type="password" id="new_password" name="UpdatePasswordForm[new_password]"
+                            placeholder="New password" minlength="8" autocomplete="new-password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="repeat_password">Re-enter new password</label>
+                        <input type="password" id="repeat_password" name="UpdatePasswordForm[new_password_repeat]"
+                            placeholder="Repeat new password" minlength="8" autocomplete="new-password" required>
+                    </div>
+
+                    <p class="error_text" style="color:red;display:none;">Passwords do not match</p>
+                </div>
+
+                <div class="card-content__actions">
+                    <button type="button" id="password-cancel-btn" class="link">Cancel</button>
+                    <button type="submit" id="save-btn" class="btn">Save</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="user-info">
+        <p class="small"><a href="/ru/user/plan">Plans and Packages</a></p>
+    </div>
+</div>

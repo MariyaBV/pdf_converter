@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
-  <title>Main page</title>
+  <title>My account</title>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   <!-- pdf.js -->
@@ -23,6 +23,7 @@
 
 
 <body>
+  <div id="overlay"></div>
   <div id="page">
     <header class="header">
   <nav class="nav page-width">
@@ -248,249 +249,136 @@
       </ul>
     </div>
     <div class="nav-actions">
-      <a data-rel="user-action" href="/en/login" class="">Entrance</a>
-      <a data-rel="user-action" href="/en/register" class="btn btn--sm ">Registration</a>
+      <a data-rel="user-action" href="/en/logout/" class="btn btn--sm ">Exit</a>
     </div>
   </nav>
 </header>
-    <main id="main" class="main page-width">
-      <h1>Online tools for PDF optimization</h1>
-      <h2>Most Popular PDF Optimization Tools</h2>
-      <section class="card">
-        <div class="card__item" data-category="organize">
-    <a href="/en/split_pdf" title="Split PDF">
-        <div class="card__item__icon">
-            <img src="img/split_pdf.svg" alt="split_pdf" class="icon">
+    <main id="main" class="main">
+      <sidebar class="sidebar">
+    <button id="button_back_sidebar" class="button-back-sidebar"></button>
+    <div class="sidebar__user">
+        <div class="avatar">
+            <div class="avatar__img">
+                <img style="max-width: 60px;" class="user__avatar__edit__preload" src="img/user.svg">
+                <p class="avatar__information__role">
+                    Registered
+                </p>
+            </div>
+            <div class="avatar__information">
+                <p class="avatar__information__email" title="jcfbherifvbsgrbsguhgeiuvh@gmail.com">
+                    jcfbherifvbsgrbsguhgeiuvh@gmail.com
+                </p>
+            </div>
         </div>
-        <h3>Split PDF</h3>
-        <div class="card__item__content">
-            <p>Select a page range, a single page, or convert each page of your document into an independent PDF file.</p>
-        </div>
-    </a>
-</div>
-         <div class="card__item" data-category="organize">
-    <a href="/en/merge_pdf" title="Merge PDF">
-        <div class="card__item__icon">
-            <img src="img/merge_pdf.svg" alt="merge_pdf" class="icon">
-        </div>
-        <h3>Merge PDF</h3>
-        <div class="card__item__content">
-            <p>Select a page range, a single page, or convert each page of your document .</p>
-        </div>
-    </a>
-</div>
-         <div class="card__item" data-category="organize">
-    <a href="/en/compress_pdf" title="Compress PDF">
-        <div class="card__item__icon">
-            <img src="img/compress_pdf.svg" alt="compress_pdf" class="icon">
-        </div>
-        <h3>Compress PDF</h3>
-        <div class="card__item__content">
-            <p>Select a page range, a single page, or convert each page of your document into an independent PDF file.</p>
-        </div>
-    </a>
-</div>
-         <div class="card__item" data-category="organize">
-    <a href="/en/word_to_pdf" title="word to PDF">
-        <div class="card__item__icon">
-            <img src="img/word_to_pdf.svg" alt="word_to_pdf" class="icon">
-        </div>
-        <h3>word to PDF</h3>
-        <div class="card__item__content">
-            <p>Select a page range, a single page, or convert each page of your document into an independent PDF file.Select a page range, a single page, or convert each page of your document into an independent PDF file</p>
-        </div>
-    </a>
-</div>
-         <div class="card__item" data-category="organize">
-    <a href="/en/jpg_to_pdf" title="jpg to PDF">
-        <div class="card__item__icon">
-            <img src="img/jpg_to_pdf.svg" alt="jpg_to_pdf" class="icon">
-        </div>
-        <h3>jpg to PDF</h3>
-        <div class="card__item__content">
-            <p>Select a page range, a single page, or convert each page of your document into an independent PDF file.</p>
-        </div>
-    </a>
-</div>
+    </div>
+    <ul class="sidebar__menu">
+        <li class="sidebar__menu__subtitle">Profile</li>
+        <li class="sidebar__menu__item sidebar__menu__item--active">
+            <a href="/en/user"><img class="icon" src="img/user.svg">My Account</a>
+        </li>
+        <li class="sidebar__menu__subtitle">Billing</li>
 
-      </section>
+        <li class="sidebar__menu__item ">
+            <a href="/en/user/pricing"><img class="icon" src="img/dropbox.svg">Plans and Packages</a>
+        </li>
+        <li class="sidebar__menu__item ">
+            <a href="/en/user/invoices"><img class="icon" src="img/card.svg">Bills</a>
+        </li>
+    </ul>
+</sidebar>
+      <div class="user-content">
+    <h1 class="title2">My account</h1>
+    <div class="card-content">
+    <div class="card-content__header">
+        <h2 class="card-content__title">Profile</h2>
+    </div>
+    <div class="card-content__body">
+        <div class="user-info">
+            <h3>Email:</h3>
+            <p title="jcfbherifvbsgrbsguhgeiuvh@gmail.com" class="user-info__email">jcfbherifvbsgrbsguhgeiuvh@gmail.com</p>
+        </div>
+    </div>
+    <div>
+        <div class="card-content__header">
+            <h2 class="card-content__title">Password</h2>
+        </div>
+        <div id="password-edit" class="card-content__form">
+            <form id="password-form" action="/ru/user/security" method="post">
+                <!-- CSRF-токен -->
+                <input type="hidden" name="_csrf-ilovepdf"
+                    value="J0v7klfhx4TU2Em6prh0Vp2f4-U3AI8EYvKvowtzhEpVDpXNGYOvt72SAMvV0U0Hqf21oHxKxDY1x8D1bh6yJg==">
+
+                <div class="card-content__body">
+                    <div class="form-group">
+                        <label for="new_password">New password</label>
+                        <input type="password" id="new_password" name="UpdatePasswordForm[new_password]"
+                            placeholder="New password" minlength="8" autocomplete="new-password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="repeat_password">Re-enter new password</label>
+                        <input type="password" id="repeat_password" name="UpdatePasswordForm[new_password_repeat]"
+                            placeholder="Repeat new password" minlength="8" autocomplete="new-password" required>
+                    </div>
+
+                    <p class="error_text" style="color:red;display:none;">Passwords do not match</p>
+                </div>
+
+                <div class="card-content__actions">
+                    <button type="button" id="password-cancel-btn" class="link">Cancel</button>
+                    <button type="submit" id="save-btn" class="btn">Save</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+    <div class="user-info">
+        <p class="small"><a href="/ru/user/plan">Plans and Packages</a></p>
+    </div>
+</div>
+</div>
+      <div class="user-content">
+    <h1 class="title2">History of actions</h1>
+    <div class="card-content">
+    <div class="card-content__header">
+        <h2 class="card-content__title">All actions</h2>
+    </div>
+    <div class="table-wrapper">
+        <table>
+            <thead>
+                <tr>
+                    <th>Invoice date</th>
+                    <th>State</th>
+                    <th>Details</th>
+                    <th>Quantity</th>
+                    <th>Payment method</th>
+                    <th>Download</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01.01.2023</td>
+                    <td>Processing</td>
+                    <td>Details</td>
+                    <td>1</td>
+                    <td>Card</td>
+                    <td><a href="#">Download</a></td>
+                </tr>
+                <tr>
+                    <td>01.01.2024</td>
+                    <td>Processing</td>
+                    <td>Details</td>
+                    <td>1</td>
+                    <td>Card</td>
+                    <td><a href="#">Download</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>
     </main>
     <footer class="footer" id="main-footer">
-  <div class="footer-bg page-width">
-    <div class="footer-wrap">
-      <div class="footer__messengers-block">
-        <div class="block-logo">
-          <a class="brand" href="/en" title="PDFconv">
-            <svg xmlns="http://www.w3.org/2000/svg" width="90" height="90" viewBox="0 0 900 900">
-              <defs>
-                <radialGradient id="swirlGrad" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#B78BDD" stop-opacity="0.95" />
-                  <stop offset="55%" stop-color="#8B58B6" stop-opacity="0.98" />
-                  <stop offset="100%" stop-color="#6E3AA3" stop-opacity="1" />
-                </radialGradient>
-                <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur in="SourceGraphic" stdDeviation="0.6" />
-                </filter>
-                <style>
-                  @font-face {
-                    font-family: 'Inter';
-                    src: local('Inter'), local('Inter-Regular');
-                  }
-
-                  .title {
-                    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, sans-serif;
-                    font-size: 120px;
-                    letter-spacing: 2px;
-                    fill: #6E3AA3;
-                    font-weight: 500;
-                  }
-                </style>
-              </defs>
-
-              <rect width="100%" height="100%" fill="white" />
-
-              <!-- Swirl made of 8 rotated petals -->
-              <g transform="translate(450,370)">
-                <!-- one petal shape -->
-                <defs>
-                  <path id="petal"
-                    d="M120,0                            C120,-20 90,-38 60,-38                            C30,-38 5,-20 5,0                            C5,25 35,43 70,50                            C100,56 120,70 120,92                            C120,120 92,145 60,145                            C20,145 -20,120 -40,92                            C-60,65 -65,35 -60,5                            C-50,-55 10,-95 70,-95                            C95,-95 120,-70 120,0 Z" />
-                </defs>
-
-                <!-- draw rotated petals -->
-                <g fill="url(#swirlGrad)" filter="url(#soft)" opacity="0.95">
-                  <use href="#petal" transform="rotate(0) scale(0.95)" />
-                  <use href="#petal" transform="rotate(45) scale(0.95)" />
-                  <use href="#petal" transform="rotate(90) scale(0.95)" />
-                  <use href="#petal" transform="rotate(135) scale(0.95)" />
-                  <use href="#petal" transform="rotate(180) scale(0.95)" />
-                  <use href="#petal" transform="rotate(225) scale(0.95)" />
-                  <use href="#petal" transform="rotate(270) scale(0.95)" />
-                  <use href="#petal" transform="rotate(315) scale(0.95)" />
-                </g>
-
-                <!-- central hole -->
-                <circle r="48" fill="white" />
-              </g>
-
-              <!-- Brand text -->
-              <text x="50%" y="770" text-anchor="middle" class="title">PDFconv</text>
-            </svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer-menu-info">
-        <div class="contact-email">
-          <a href="mailto:info@gmail.com">
-            <span class="icon-email"></span>
-            <span>info@gmail.com</span>
-          </a>
-        </div>
-        <div class="contact-phone">
-          <a href="tel:">
-            <span class="icon-phone"></span>
-            <span>phone number</span>
-          </a>
-        </div>
-        <div class="contact-address">
-          <a href="https://www.google.com/maps" alt="Adress">
-            <span class="icon-address"></span>
-            <span>Adress</span>
-          </a>
-        </div>
-        <div class="contact-messengers mobile">
-          <a class="google" href="">
-            <img src="img/g.svg" alt="google" class="icon">
-          </a>
-          <a class="facebook" href="">
-            <img src="img/facebook.svg" alt="facebook" class="icon">
-          </a>
-        </div>
-      </div>
-      <div class="footer-menu-list">
-        <div class="menu__main">
-          <ul class="menu__main_list">
-            <li>
-              <ul>
-                <li>
-                  <div class="nav__title">Organize PDF</div>
-                </li>
-                <li>
-                  <a href="/en/merge_pdf">
-                    <img src="img/merge_pdf.svg" alt="merge pdf" class="icon">
-                    Merge PDF
-                  </a>
-                </li>
-                <li>
-                  <a href="/en/split_pdf">
-                    <img src="img/split_pdf.svg" alt="split pdf" class="icon">
-                    Split PDF
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <ul>
-                <li>
-                  <div class="nav__title">Optimization PDF</div>
-                </li>
-                <li>
-                  <a href="/en/compress_pdf">
-                    <img src="img/compress_pdf.svg" alt="compress pdf" class="icon">
-                    Сompress PDF
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <ul>
-                <li>
-                  <div class="nav__title">Convert to PDF</div>
-                </li>
-                <li>
-                  <a href="/en/jpg_to_pdf">
-                    <img src="img/jpg_to_pdf.svg" alt="JPG to PDF" class="icon">
-                    JPG to PDF
-                  </a>
-                </li>
-                <li>
-                  <a href="/en/word_to_pdf">
-                    <img src="img/word_to_pdf.svg" alt="word to pdf" class="icon">
-                    word to pdf
-                  </a>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <ul>
-                <li>
-                  <div class="nav__title">Convert from PDF</div>
-                </li>
-                <li>
-                  <a href="/en/pdf_to_jpg">
-                    <img src="img/pdf_to_jpg.svg" alt="PDF to JPG" class="icon">
-                    PDF to JPG
-                  </a>
-                </li>
-                <li>
-                  <a href="/en/pdf_to_word">
-                    <img src="img/pdf_to_word.svg" alt="PDF to WORD" class="icon">
-                    PDF to WORD
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-policy">
-        <a href="http://">User Agreement</a>
-        <a href="http://">Personal data processing policy</a>
-        <a href="http://">Privacy Policy</a>
-        <a href="http://">Cookie Policy</a>
-      </div>
-    </div>
-  </div>
   <div class="footer-copyright">
     <p>© PDFconv 2025 ® - Your PDF Converter</p>
   </div>
@@ -498,4 +386,5 @@
   </div>
   <script src="js/main.min.js"></script>
 </body>
+
 </html>

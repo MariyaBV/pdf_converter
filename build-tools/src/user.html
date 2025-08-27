@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+@@include('components/const/_head.html', { "lang":"en", "title":"My account",
+"other_css":false } )
+
+<body>
+  <div id="overlay"></div>
+  <div id="page">
+    @@include('components/const/_header-user.html')
+    <main id="main" class="main">
+      @@include('components/const/_sidebar.html')
+      @@include(
+      'components/components/user-content.html',
+      {
+      "title": "My account",
+      "block_name": "my_account"
+      }
+      )
+      @@include(
+      'components/components/user-content.html',
+      {
+      "title": "History of actions",
+      "block_name": "history_of_actions"
+      }
+      )
+    </main>
+    @@include('components/const/_footer-little.html')
+  </div>
+  <script src="js/main.min.js"></script>
+</body>
+
+</html>
